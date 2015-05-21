@@ -1,0 +1,38 @@
+<navbar></navbar>
+
+<div class="container margin-to-navbar">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="jumbotron">
+                <h3>Pick a project!</h3>
+                <br>
+                <!--<div class="btn-group-vertical btn-group-lg">-->
+                    <!--<a class="btn btn-default" ng-repeat="project in projects" ng-href="{{project.url}}" target="_blank">{{project.app}}</a>-->
+                <!--</div>-->
+
+                <form class="form-horizontal" style="margin: 0 25px">
+                    <div class="form-group has-feedback">
+                        <input class="form-control input-lg" type="text" ng-model="filter.app" placeholder="Filter">
+                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                    </div>
+                </form>
+
+                <ul class="row ulstyle list-inline" style="list-style-type: none">
+                    <li class="lidata" ng-repeat="project in projects | filter:filter">
+                        <div ng-show="project.wip">
+                            <h2 style="margin-bottom: 100px">Soon™</h2>
+                            <p>{{project.app}}</p>
+                        </div>
+                        <a ng-href="{{project.url}}" target="_blank" style="text-decoration: none !important;" ng-hide="project.wip">
+                            <div>
+                                <img ng-src="{{project.preview}}" style="height: 150px" ng-hide="project.wip"></img>
+                                <!--<iframe src="http://www.google.es"></iframe>-->
+                                <p>{{project.app}}</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
